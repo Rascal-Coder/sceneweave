@@ -109,3 +109,263 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+.auth-fullscreen-loading {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  font-size: 1.1rem;
+  color: var(--text-h);
+}
+
+.app-page {
+  flex: 1;
+  padding: 1.25rem;
+  text-align: start;
+}
+
+.app-page h1 {
+  font-size: 1.65rem;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.35rem;
+}
+
+.app-page-lead {
+  margin: 0 0 1.25rem;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.project-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  max-width: 28rem;
+}
+
+.project-link-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+}
+
+.project-link-main {
+  font-weight: 600;
+  color: var(--text-h);
+  text-decoration: none;
+}
+
+.project-link-main:hover {
+  color: var(--accent);
+}
+
+.project-link-meta {
+  font-size: 0.85rem;
+}
+
+.project-link-secondary {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.project-link-secondary:hover {
+  color: var(--accent);
+}
+
+.app-shell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  min-height: 100%;
+}
+
+.app-shell-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.app-shell-brand {
+  font-weight: 600;
+  color: var(--text-h);
+  margin-inline-end: 0.25rem;
+}
+
+.app-shell-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.app-shell-spacer {
+  flex: 1;
+  min-width: 0.5rem;
+}
+
+.app-nav-link {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.app-nav-link:hover {
+  color: var(--accent);
+}
+
+.app-nav-link.is-active {
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.app-nav-button {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.35rem 0.65rem;
+  background: var(--bg);
+  color: var(--text-h);
+}
+
+.app-nav-button:hover {
+  border-color: var(--accent-border);
+}
+
+.project-settings-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.project-settings-back {
+  font-size: 0.9rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.project-settings-back:hover {
+  text-decoration: underline;
+}
+
+.not-found-actions {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.not-found-actions a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.not-found-actions a:hover {
+  text-decoration: underline;
+}
+
+.studio-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.studio-toolbar-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+}
+
+.studio-toolbar-title {
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.studio-toolbar-grow {
+  flex: 1;
+  min-width: 0.5rem;
+}
+
+.studio-toolbar-aux {
+  font-size: 0.85rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.studio-toolbar-aux:hover {
+  color: var(--accent);
+}
+
+.studio-toolbar-logout {
+  font-size: 0.85rem;
+}
+
+.studio-toolbar-nav {
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--border);
+  gap: 0.35rem 0.65rem;
+}
+
+.studio-toolbar-link {
+  font-size: 0.85rem;
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+}
+
+.studio-toolbar-link:hover {
+  background: var(--accent-bg);
+  color: var(--text-h);
+}
+
+.studio-toolbar-link.is-active {
+  background: var(--accent-bg);
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.project-settings-fullscreen {
+  min-height: 100%;
+}
+
+.studio-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+.studio-layout-header {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.studio-panel {
+  flex: 1;
+  padding: 1rem;
+}
+
+.studio-loading-placeholder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 8rem;
+  color: var(--text);
+}
