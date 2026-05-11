@@ -1,5 +1,16 @@
 # React + TypeScript + Vite
 
+前端依赖请使用 **pnpm**（与 `pnpm-lock.yaml` 一致）。常用命令：
+
+```bash
+pnpm install
+pnpm dev
+pnpm build
+pnpm lint
+```
+
+调用 CLI 工具时用 `pnpm dlx`（例如 `pnpm dlx shadcn@latest init`），不要用 `npx`。
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

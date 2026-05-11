@@ -11,9 +11,15 @@ node_modules / .venv / .git / .worktrees 等十几万个文件，单核 CPU 50%+
 
 import asyncio
 import logging
+import sys
 import time
 from contextlib import asynccontextmanager
 from pathlib import Path
+
+# Windows：若使用 Selector 事件循环，异步子进程会 NotImplementedError，
+# claude_agent_sdk 启动 bundled claude.exe 会报 CLIConnectionError: Failed to start Claude Code。
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
