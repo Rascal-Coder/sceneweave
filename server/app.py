@@ -4,7 +4,8 @@
 启动方式:
     cd SceneWeave
     uv run uvicorn server.app:app --reload --reload-dir server --reload-dir lib --port 1241
-
+    window 下需要使用 --loop server.uvicorn_loop:create_uvicorn_event_loop
+    uv run uvicorn server.app:app --reload --reload-dir server --reload-dir lib --port 1241 --loop server.uvicorn_loop:create_uvicorn_event_loop
 注意：必须用 --reload-dir 限定监视目录，否则 watchfiles 会扫描
 node_modules / .venv / .git / .worktrees 等十几万个文件，单核 CPU 50%+。
 """
@@ -16,8 +17,9 @@ import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-# Windows：若使用 Selector 事件循环，异步子进程会 NotImplementedError，
-# claude_agent_sdk 启动 bundled claude.exe 会报 CLIConnectionError: Failed to start Claude Code。
+# Windows：辅助非 uvicorn 入口（例如测试里手动建循环）。运行 Web 时请以
+# --loop server.uvicorn_loop:create_uvicorn_event_loop 为准：reload 下 uvicorn 会显式选用
+# SelectorEventLoop，仅 set_event_loop_policy 无法覆盖。
 if sys.platform == "win32":
     asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 
@@ -372,4 +374,8 @@ if frontend_dist_dir.exists():
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="0.0.0.0", port=1241, reload=True)
+    # uvicorn.run(app, host="0.0.0.0", port=1241, reload=True)
+    loop_opt: str = "auto"
+    if sys.platform == "win32":
+        loop_opt = "server.uvicorn_loop:create_uvicorn_event_loop"
+    uvicorn.run(app, host="0.0.0.0", port=1241, reload=True, loop=loop_opt)
